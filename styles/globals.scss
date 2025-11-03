@@ -1,0 +1,174 @@
+@import "./placeholders";
+
+/* App.vue global rules */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  color: #2c3e50;
+}
+
+#app {
+  font-family: "system-ui", Helvetica, "Avenir", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  height: 100%;
+}
+
+/* Note component styles (from Note.vue) */
+.note {
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 2px solid #eee;
+  opacity: 0.3;
+  flex-direction: row;
+  max-width: 100%;
+  flex-direction: row;
+
+  &:hover {
+    opacity: 1;
+
+    .note__delete {
+      margin-left: 0;
+    }
+  }
+
+  &__content {
+    padding: 30px;
+    flex: 2;
+    overflow: hidden;
+  }
+
+  &__title {
+    display: block;
+    font-size: 1em;
+    margin: 0;
+    font-weight: 500;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__body {
+    font-size: 0.9em;
+    margin-bottom: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__delete {
+    position: relative;
+    margin-left: -50px;
+    width: 50px;
+    display: block;
+    background: #cc44ee;
+    min-height: 100%;
+    color: #fff;
+    transition: margin-left 100ms ease-in-out;
+  }
+
+  &__delete-icon {
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: 600;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Pad component styles (from Pad.vue) */
+.pad {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    max-width: 100%;
+    border: 0;
+    font: inherit;
+    font-size: 1.6em;
+    outline: none;
+    padding: 20px;
+    padding-left: 30px;
+    padding-top: 25px;
+  }
+
+  &__text {
+    flex: 1;
+    margin: 0;
+    max-width: 100%;
+    border: 0;
+    font: inherit;
+    resize: 0;
+    padding: 20px 30px;
+    outline: none;
+    line-height: 2;
+
+    mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #fff 5%,
+      #fff 95%,
+      transparent 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent 0%,
+      #fff 5%,
+      #fff 95%,
+      transparent 100%
+    );
+  }
+
+  &__footer {
+    padding: 20px 30px;
+  }
+}
+
+.pad__footer-items {
+  @extend %inline-list;
+}
+
+.pad__footer-item {
+  flex: 1;
+  font-size: 0.9em;
+
+  &--right {
+    margin-left: auto;
+    text-align: right;
+  }
+}
+
+/* Sidebar component styles (from Sidebar.vue) */
+.sidebar {
+  background-color: #f9f9f9;
+  flex: 1;
+  height: 100%;
+  min-width: 28%;
+  border-right: 2px solid #eee;
+  overflow-y: scroll;
+
+  &__content {
+    padding: 30px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
